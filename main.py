@@ -23,21 +23,24 @@ summarized = ai_sum()
 print(f"finnished summarize:\n{summarized}\n---------------------------------")
 
 responce_real = ask(f'''
-Analyze the following text and extract its core themes. Then, create a list of broad Google search queries based on these themes. The queries should:
+Analyze the following text and extract multiple core themes. For each theme, generate at least **two distinct** Google search queries.
 
-    - Be broad enough to encompass various contexts (historical, social, political, etc.).
-    - Reflect overarching themes without getting lost in niche or overly specific details.
-    - Be structured as natural, real-world search queries that someone would actually use (e.g., "history of book banning," "impact of fearmongering on society").
-    - Stay under one central theme (e.g., "fearmongering," "religious freedom," or "social dynamics").
+### **Instructions:**
+- **Identify multiple overarching themes** (e.g., "discrimination," "cultural identity," "political rhetoric," "immigration").
+- Create search queries in **different formats**:
+  - ✅ **General topics** ("history of book banning")
+  - ✅ **Cause-effect searches** ("how election fearmongering affects minorities")
+  - ✅ **First-person experiences** ("stories of immigrant families overcoming discrimination")
+  - ✅ **Fact-based queries** ("statistics on anti-Muslim hate crimes in the US")
+- **Make queries natural for Google and YouTube searches.** 
 
-Return the queries in a Python list of strings, formatted strictly as shown below.
+### **Example Output:**
+["history of book banning", "how political rhetoric fuels discrimination", "stories of immigrants overcoming religious prejudice", "statistics on anti-Muslim hate crimes in the US"]
 
 Text:
     {summarized}
 
-Output Example:
-
-["history of censorship", "effects of fearmongering on society", "how political rhetoric influences public opinion", "impact of religious intolerance in contemporary times"]
+Return a **Python list of strings** formatted strictly as shown in the example.
 ''')
 print("Finished keywords:\n---------------------------")
 

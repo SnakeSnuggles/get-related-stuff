@@ -17,6 +17,8 @@ results = []
 
 for theme,links in data.items():
     for link in links:
+        if link.strip() == "":
+            continue
         ID = link.split("=")[1]
         transcript = ""
         try:
@@ -30,12 +32,16 @@ for theme,links in data.items():
         to_summarize = summary_maker(transcript)
         summarized_transcript = ask(to_summarize)
         result = ask(f'''
-Analyze the provided transcript and determine whether the given theme is relevant to its overall content. Use the summary as additional context to improve accuracy. Return only "True" or "False" with no extra explanation.
+Analyze the provided transcript and determine whether the given theme is relevant to its overall content. Use the summary as additional context to improve accuracy. 
 
-Criteria:
-- **Relevant**: The theme is a core topic, or it aligns directly with the main ideas in the transcript.
-- **Not Relevant**: The theme is a tangential idea or doesn't match the transcript’s main focus.
+### Criteria:
+- **True (Relevant)**: The theme is a core topic, directly aligns with major ideas, OR significantly overlaps with related themes (e.g., Islamophobia, discrimination, political rhetoric, societal backlash).
+- **False (Not Relevant)**: The theme is only loosely connected, is a minor background detail, or lacks meaningful overlap with the transcript's focus.
 
+Consider **broader thematic connections**, not just direct word matching.
+
+Return **only** `"True"` or `"False"`. Do not include any explanations, additional text, or formatting.
+UNDER NO CIRCUMSTANCES SHOULD YOU RETURN ANYTHING BUT THE TRUE OR FALSE thank you very much
 Summary (context):
 {summary}
 
@@ -48,7 +54,7 @@ Transcript:
         print(result.strip())
         print(f"Video: {link} \nrelated:{is_related}")
 
-        if result:
+        if is_related:
             results.append(link)
 
 with open(f"{data_dir}user_to_sort.json","a") as f:
