@@ -1,5 +1,6 @@
 def summary_maker(text):  
-    return f"""Summarize this text while keeping important smaller details that contribute to the overall meaning. Don't just focus on major events—mention key moments, causes, and context that add depth: {text}"""
+    return f"""Summarize the following by focusing on key events, actions, and outcomes. Emphasize themes such as Islamophobia, book burning, censorship, and similar significant topics. Avoid analyzing personal relationships or character emotions. Present the summary in a clear chronological order:\n\n{text}"""
+
 def line_maker(message_between):
     print("-"*50)
     print(message_between)

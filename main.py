@@ -23,24 +23,22 @@ summarized = ai_sum()
 print(f"finnished summarize:\n{summarized}\n---------------------------------")
 
 responce_real = ask(f'''
-Analyze the following text and extract multiple core themes. For each theme, generate at least **two distinct** Google search queries.
+Analyze the following text and generate **a diverse set** of effective Google search queries based on its key topics. 
 
 ### **Instructions:**
-- **Identify multiple overarching themes** (e.g., "discrimination," "cultural identity," "political rhetoric," "immigration").
-- Create search queries in **different formats**:
-  - ✅ **General topics** ("history of book banning")
-  - ✅ **Cause-effect searches** ("how election fearmongering affects minorities")
-  - ✅ **First-person experiences** ("stories of immigrant families overcoming discrimination")
-  - ✅ **Fact-based queries** ("statistics on anti-Muslim hate crimes in the US")
-- **Make queries natural for Google and YouTube searches.** 
+- Identify **all relevant topics** present in the text, not just the most obvious ones.
+- Generate **concise and natural** searches.
+- Prefer **multiple short searches over one long one**.
+- Ensure **broad coverage** of themes, including historical, social, and political aspects.
+- Avoid unnecessary focus on relationships between characters.
 
 ### **Example Output:**
-["history of book banning", "how political rhetoric fuels discrimination", "stories of immigrants overcoming religious prejudice", "statistics on anti-Muslim hate crimes in the US"]
+["history of book banning", "election fearmongering examples", "hate crimes against immigrants statistics", "anti-Muslim discrimination stories", "government surveillance and free speech", "media bias in war coverage"]
 
 Text:
     {summarized}
 
-Return a **Python list of strings** formatted strictly as shown in the example.
+Return a **Python list of strings** with at least 5 varied and relevant search queries.
 ''')
 print("Finished keywords:\n---------------------------")
 
@@ -72,7 +70,7 @@ for query in keyword_list:
     print(f"{query}")
     print("_"*50)
     google_search = f"{query} site:youtube.com/watch"
-    for result in search(google_search, num_results=9,unique=True):
+    for result in search(google_search, num_results=100,unique=True):
         print(result)
         if query not in links_to_add:
             links_to_add[query] = []
