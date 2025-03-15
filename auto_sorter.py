@@ -24,8 +24,8 @@ results = []
 
 for theme,links in data.items():
     for link in links:
-        if link in links_to_sort or link in links_to_sort:
-            print("link in points")
+        if link in links_to_sort or link in links_in_points or link in results:
+            print("duplicate link")
             continue
         if link.strip() == "":
             continue
