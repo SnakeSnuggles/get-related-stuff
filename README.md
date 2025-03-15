@@ -5,4 +5,5 @@ A python program to assist in finding youtube videos relating to a text
 - All of these libraries
     - `pip install ollama youtube_transcript_api googlesearch-python`
 ## Run
-    get-related-stuff-path> .\run.bat
+    - Put text inside of data/data.txt
+    `get-related-stuff-path> .\run.bat`
