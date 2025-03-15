@@ -68,5 +68,3 @@ Transcript:
             results.append(link)
             with open(f"{data_dir}user_to_sort.json","a") as f:
                 f.write(f"{link}\n")
-
-

@@ -11,6 +11,8 @@ Run the following command:
 ```sh
 pip install ollama youtube_transcript_api googlesearch-python
 ```
+# **!!DISCLAMER!!**
+**The links generated are not garenteed to be related at all. You have to look through them manually.**
 
 ## **Usage**  
 1. Add your text inside `data/data.txt`.  
