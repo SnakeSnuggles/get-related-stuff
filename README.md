@@ -1,9 +1,21 @@
-# Get Related Links
-A python program to assist in finding youtube videos relating to a text
-## Things to install to run
-- ollama and deepseekr1: [follow this tutorial to do that](https://www.datacamp.com/tutorial/deepseek-r1-ollama)
-- All of these libraries
-    - `pip install ollama youtube_transcript_api googlesearch-python`
-## Run
-    - Put text inside of data/data.txt
-    - `get-related-stuff-path> .\run.bat`
+# **Get Related Links**  
+A Python program to assist in finding YouTube videos related to a given text.  
+
+## **Installation**  
+
+### **1. Install Ollama and Deepseek-R1**  
+Follow this tutorial: [Deepseek-R1 + Ollama Setup](https://www.datacamp.com/tutorial/deepseek-r1-ollama).  
+
+### **2. Install Required Libraries**  
+Run the following command:  
+```sh
+pip install ollama youtube_transcript_api googlesearch-python
+```
+
+## **Usage**  
+1. Add your text inside `data/data.txt`.  
+2. Run the program using:  
+   ```sh
+   .\run.bat
+   ```
+   *(Run this from the `get-related-stuff` directory.)*  
